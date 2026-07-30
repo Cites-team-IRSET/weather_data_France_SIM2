@@ -1,0 +1,37 @@
+Température au niveau du code INSEE, 2010-2025
+
+************************************************************************************
+- summary_8km_temp_summerYYYY.rds : un fichier par été, année YYYY entre 2010 et 2025. 
+contient les variables environnementales quotidiennes au niveau spatial du code INSEE. 
+Ces données ont été agrégées à partir des données du modèle SIM2 de Météo-France (grille de 8km) en utilisant les variables environnementales au centroïde de la population (données carroyées à 200 mètres, INSEE) de chaque code INSEE.
+
+Pour les codes INSEE, le découpage administratif au 1er janvier 2023 a été utilisé.
+
+variables:
+* INSEE_COM: code INSEE de la commune
+* NOM: nom de la commune
+* date: du 1er mai au 30 septembre (été étendu)
+* maille: numéro de la maille de SIM2 utilisée pour estimer les variables environnementales de la commune
+* T_Q: température (moyenne quotidienne), °C
+* TSUP_H_Q: température maximale des 24 températures horaires, °C
+* TINF_H_Q: température minimale des 24 températures horaires, °C
+* FF_Q: vent (moyenne quotidienne), m/s
+* HU_Q: humidité relative (moyenne quotidienne), %
+* centroid: coordonnées géographiques du point où la population est la plus dense dans la commune  
+sources:
+Données climatiques SIM2: https://www.data.gouv.fr/datasets/donnees-changement-climatique-sim-quotidienne
+Population: donnnées carroyées à 200 mètres https://www.insee.fr/fr/statistiques/2520034#dictionnaire
+
+Certaines communes sont absentes du fichier de données carroyées, notamment:
+- Certain village détruits pendant la première guerre mondiale, pas d’habitants : Louvemont-Côte-du-Poivre code INSEE 55307, Beaumont-en-Verdunois 55039, Bezonvaux 55050 , Haumont-près-Samogneux 55239, Fleury-devant-Douaumont 55189
+- Deux îles : Île-de-Sein 29083 et Ile Molène 29084
+- Rochefourchat code INSEE 26274, un seul habitant
+
+************************************************************************************
+
+- COMMUNE_FRMETDROM.shp
+
+* INSEE_COM: code INSEE de la commune au 1er janvier 2023
+* geometry: coordonnées du polygone de la commune
+
+************************************************************************************

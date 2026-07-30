@@ -1,0 +1,54 @@
+Température au niveau du code géographique, 2010-2025
+
+************************************************************************************
+- temp_YYYY_bdi_cod.rds : un fichier par été, année YYYY entre 2010 et 2025. 
+contient les variables environnementales quotidiennes au niveau spatial du code géographique (correspondant à la variable BDI_COD dans le PMSI). 
+Ces données ont été agrégées à partir des données du modèle SIM2 de Météo-France (grille de 8km) en utilisant les variables environnementales au centroïde de la population (données carroyées à 200 mètres, INSEE) de chaque code INSEE.
+Pour passer au code géographique, une moyenne des variables environnementales de chaque code INSEE constituant le code géographique, pondérée par la population de chacun de ces codes INSEE, a été faite.
+
+Pour les codes INSEE et codes géographique, le découpage administratif au 1er janvier 2023 a été utilisé.
+
+variables:
+* PMSI23_CODE: code géographique (correspond à la variable BDI_COD dans le PMSI)
+* date: du 1er mai au 30 septembre (été étendu)
+* temp_mean: température (moyenne quotidienne), °C
+* temp_max: température maximale des 24 températures horaires, °C
+* temp_min: température minimale des 24 températures horaires, °C
+* wind: vent (moyenne quotidienne), m/s
+* hum: humidité relative (moyenne quotidienne), %
+
+sources:
+Données climatiques SIM2: https://www.data.gouv.fr/datasets/donnees-changement-climatique-sim-quotidienne
+Population: donnnées carroyées à 200 mètres https://www.insee.fr/fr/statistiques/2520034#dictionnaire
+
+Certaines communes sont absentes du fichier de données carroyées, notamment:
+- Certain village détruits pendant la première guerre mondiale, pas d’habitants : Louvemont-Côte-du-Poivre code INSEE 55307, Beaumont-en-Verdunois 55039, Bezonvaux 55050 , Haumont-près-Samogneux 55239, Fleury-devant-Douaumont 55189
+- Deux îles : Île-de-Sein 29083 et Ile Molène 29084
+- Rochefourchat code INSEE 26274, un seul habitant
+Comme ces communes font partie d'un code géographique peuplé, leur température correspond donc à la moyenne des autres communes constituant ce code géographique, pondérée par leur population.
+
+************************************************************************************
+
+- bdi23_codinsee23.xlsx
+correspondance entre les codes INSEE et les codes géographiques, au 1er janvier 2023.
+
+* COM_CODE_ACTUEL: code INSEE actuel (2025)
+* COM23_CODE: code INSEE au 1er janvier 2023
+* COM23_LIB: libellé du code INSEE au 1er janvier 2023
+* DPT23_CODE: code département au  au 1er janvier 2023
+* DPT23_LIB: libellé du département au 1er janvier 2023 
+* REG23_CODE: code région au 1er janvier 2023
+* REG23_LIB: libellé de la région au 1er janvier 2023
+* PMSI23_CODE: code géographique (correspondant au BDI_COD du PMSI) en 2023
+* PMSI23_LIB: libellés des communes constituant le code géographique en 2023
+
+source: ATIH
+
+************************************************************************************
+
+- bdicod_2023_polyg.rds
+
+* PMSI23_CODE: code géographique (correspondant au BDI_COD du PMSI) en 2023
+* geometry: coordonnées du polygone du code géographique
+
+************************************************************************************
