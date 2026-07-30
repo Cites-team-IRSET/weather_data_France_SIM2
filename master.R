@@ -50,7 +50,7 @@ grid <-  st_read(here("data/geo", "mailles_safran_complete_l93.gpkg"))
 
 # Method 1:	Mean estimates weighted by the surface of the intersect grid x municipality polygon ####
 ## Intersection between the grid of temperature and the communes ####
-# running time approx 6 HOURS /!\ no need to run, the result of this intersect is open just afterwards
+# running time approx 6 HOURS 
 source("scripts/polygon_munic_intersection/intersection_safran_grid_and_municipalities.R") 
 # explanation: this gives the weight of each grid for the calculation of per-municipality variable (ex: temperature)
 # open the result of this intersect
