@@ -61,7 +61,7 @@ for (y in temp_years) {
   # # store results in list
   # results[[as.character(y)]] <- DT
   # Save result to disk (CSV)
-  outfile <- paste0("output/temp_all_Fr_per_year/8km/summary_8km_temp_summer", y, ".rds")
+  outfile <- paste0("output/temp_all_Fr_per_year/8km_pop_centroid/summary_8km_temp_summer", y, ".rds")
   saveRDS(DT, file = outfile)
   
   message("Saved year ", y)
@@ -97,7 +97,7 @@ for (y in temp_years) {
   # # store results in list
   # results[[as.character(y)]] <- DT
   # Save result to disk (CSV)
-  outfile <- paste0("output/temp_all_Fr_per_year/8km/summary_8km_temp_summer", y, ".rds")
+  outfile <- paste0("output/temp_all_Fr_per_year/8km_pop_centroid/summary_8km_temp_summer", y, ".rds")
   saveRDS(DT, file = outfile)
   
   message("Saved year ", y)
